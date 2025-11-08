@@ -1,12 +1,9 @@
 # Client-Server Arithmetic Calculator Using IPC
 
-[![C](https://img.shields.io/badge/language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![UNIX](https://img.shields.io/badge/platform-UNIX%2FLinux-lightgrey.svg)](https://www.unix.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+A client-server application demonstrating **Interprocess Communication (IPC)** using Named Pipes (FIFOs) in C. 
+Built for CS5115 Programming Assignment 6.
 
-A client-server application demonstrating **Interprocess Communication (IPC)** using Named Pipes (FIFOs) in C. Built for CS5115 Programming Assignment 6.
-
-## 📋 Overview
+##  Overview
 
 This project implements a multi-process architecture where:
 - A **server** process handles arithmetic operations
@@ -14,18 +11,18 @@ This project implements a multi-process architecture where:
 - Communication occurs via **Named Pipes (FIFOs)**
 - All operations are logged for traceability
 
-## ✨ Features
+##  Features
 
-- ✅ **Four arithmetic operations**: Addition, Subtraction, Multiplication, Division
-- ✅ **Named Pipe IPC**: Uses UNIX FIFOs for process communication
-- ✅ **Concurrent client handling**: Server uses `fork()` to handle multiple clients simultaneously
-- ✅ **Process management**: Automatic zombie process reaping with SIGCHLD handler
-- ✅ **Error handling**: Division by zero detection, input validation
-- ✅ **Activity logging**: Complete server transaction history with process IDs
-- ✅ **Graceful shutdown**: Signal handlers for clean termination
-- ✅ **Resource cleanup**: Proper FIFO and file descriptor management
+-  **Four arithmetic operations**: Addition, Subtraction, Multiplication, Division
+-  **Named Pipe IPC**: Uses UNIX FIFOs for process communication
+-  **Concurrent client handling**: Server uses `fork()` to handle multiple clients simultaneously
+-  **Process management**: Automatic zombie process reaping with SIGCHLD handler
+-  **Error handling**: Division by zero detection, input validation
+-  **Activity logging**: Complete server transaction history with process IDs
+-  **Graceful shutdown**: Signal handlers for clean termination
+-  **Resource cleanup**: Proper FIFO and file descriptor management
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────┐                    ┌─────────────────┐
@@ -49,7 +46,7 @@ This project implements a multi-process architecture where:
 4. Child returns result via `/tmp/fifo_response` and exits
 5. Parent server continues accepting new clients
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -108,7 +105,7 @@ Client: Exiting...
 └── server_log.txt     # Generated at runtime
 ```
 
-## 🛠️ Makefile Commands
+##  Makefile Commands
 
 | Command | Description |
 |---------|-------------|
@@ -120,7 +117,7 @@ Client: Exiting...
 | `make clean` | Remove executables and logs |
 | `make stop` | Stop running server |
 
-## 🧪 Testing
+##  Testing
 
 ### Basic Functionality Tests
 ```bash
@@ -177,14 +174,7 @@ struct response {
 };
 ```
 
-## ⚠️ Known Limitations
-
-- **Sequential Processing**: Server handles one client at a time
-- **Integer Operations**: No floating-point support
-- **Local Only**: No network communication (UNIX domain only)
-- **No Authentication**: No client verification
-
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "Error opening request FIFO"
 **Solution:** Ensure server is running first
@@ -213,53 +203,13 @@ pkill server
 make clean
 ```
 
-## 📚 Documentation
-
-- **[Technical Report](TECHNICAL_REPORT.md)** - Detailed design decisions and testing results
-- **Code Comments** - Inline documentation in source files
-
-## 🎓 Educational Context
-
-**Course:** CS5115 - Programming Prep for Graduate Students  
-**Assignment:** PA6 - Client-Server Communication Using IPC  
-**Semester:** Fall 2025  
-**Author:** Lingamuthu Kalyansundaram
 
 ### Learning Objectives Covered
-- ✅ Process creation with `fork()`
-- ✅ Parent-child process relationships
-- ✅ Interprocess communication via Named Pipes
-- ✅ Request-response protocol design
-- ✅ Concurrent process management
-- ✅ Zombie process prevention with `waitpid()`
-- ✅ Signal handling (SIGCHLD, SIGINT, SIGTERM)
-- ✅ Error handling and resource management
-
-## 🤝 Contributing
-
-This is an academic project, but suggestions are welcome:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit changes (`git commit -m 'Add improvement'`)
-4. Push to branch (`git push origin feature/improvement`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is created for educational purposes. See [LICENSE](LICENSE) for details.
-
-## 🔗 References
-
-- Stevens & Rago - *Advanced Programming in the UNIX Environment*
-- Linux man pages: `mkfifo(3)`, `open(2)`, `read(2)`, `write(2)`
-- CS5115 Course Materials
-
-## 📧 Contact
-
-**Lingamuthu Kalyansundaram**  
-CS5115 - Fall 2025
-
----
-
-⭐ If you found this helpful, please star the repository!
+-  Process creation with `fork()`
+-  Parent-child process relationships
+-  Interprocess communication via Named Pipes
+-  Request-response protocol design
+-  Concurrent process management
+-  Zombie process prevention with `waitpid()`
+-  Signal handling (SIGCHLD, SIGINT, SIGTERM)
+-  Error handling and resource management
