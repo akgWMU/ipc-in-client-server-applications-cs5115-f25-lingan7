@@ -33,7 +33,7 @@ FILE *log_file = NULL;
 volatile sig_atomic_t keep_running = 1;
 
 // Cleanup function
-void cleanup() {
+void cleanup(void) {
     if (request_fd != -1) {
         close(request_fd);
     }
@@ -135,7 +135,7 @@ void handle_client(struct message *msg) {
     close(response_fd);
 }
 
-int main() {
+int main(void) {
     struct message msg;
     
     // Register signal handlers

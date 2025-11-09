@@ -81,7 +81,7 @@ int communicate_with_server(struct message *msg) {
     return 0;
 }
 
-int main() {
+int main(void) {
     struct message msg;
     char operation[10];
     
